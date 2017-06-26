@@ -10,29 +10,13 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController {
-
-    let locationManager = CLLocationManager()
-    var currentLocation: CLLocationCoordinate2D?
-
+    var locationManager: LocationManager?
     var delegate: Navigatable?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.locationManager.requestAlwaysAuthorization()
-
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
-    }
-
-    deinit {
-        locationManager.stopUpdatingLocation()
+        locationManager = LocationManager()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,7 +28,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let searchString = searchBar.text, let current = currentLocation {
+        if let searchString = searchBar.text, let current = locationManager?.currentLocation {
             let geocoder = MapGeocoderBL()
             geocoder.forwardGeocoding(address: searchString) {[weak self] (result) in
                 self?.delegate?.navigation(origin: current, destination: result)
@@ -52,10 +36,3 @@ extension ViewController: UISearchBarDelegate {
         }
     }
 }
-
-extension ViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        currentLocation = manager.location?.coordinate
-    }
-}
-

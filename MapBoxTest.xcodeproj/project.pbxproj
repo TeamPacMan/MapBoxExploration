@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4304B91F016AE200B2595C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4304B81F016AE200B2595C /* LocationManager.swift */; };
 		0ABE27F91ECB141300A6C5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE27F81ECB141300A6C5B4 /* AppDelegate.swift */; };
 		0ABE27FB1ECB141300A6C5B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE27FA1ECB141300A6C5B4 /* ViewController.swift */; };
 		0ABE27FE1ECB141300A6C5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ABE27FC1ECB141300A6C5B4 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A4304B81F016AE200B2595C /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0ABE27F51ECB141300A6C5B4 /* MapBoxTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapBoxTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABE27F81ECB141300A6C5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ABE27FA1ECB141300A6C5B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				0ABE28041ECB141300A6C5B4 /* Info.plist */,
 				0AD2025E1EFD62A600D1904F /* MapViewController.swift */,
 				0AD202601EFD68F200D1904F /* MapGeocoderBL.swift */,
+				0A4304B81F016AE200B2595C /* LocationManager.swift */,
 			);
 			path = MapBoxTest;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				0ABE27FB1ECB141300A6C5B4 /* ViewController.swift in Sources */,
 				0AD2025F1EFD62A600D1904F /* MapViewController.swift in Sources */,
+				0A4304B91F016AE200B2595C /* LocationManager.swift in Sources */,
 				0AD202611EFD68F200D1904F /* MapGeocoderBL.swift in Sources */,
 				0ABE27F91ECB141300A6C5B4 /* AppDelegate.swift in Sources */,
 			);
