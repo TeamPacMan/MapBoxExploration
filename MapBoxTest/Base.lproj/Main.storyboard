@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,20 +15,63 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapBoxTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="w1E-on-WuP"/>
+                        <viewControllerLayoutGuide type="bottom" id="uTo-Ep-aYt"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MGLMapView">
+                    <view key="view" contentMode="scaleToFill" id="ZVs-zN-W8K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/mapbox/streets-v9"/>
-                        </userDefinedRuntimeAttributes>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xpU-Hf-ONW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OT1-lT-Z8C"/>
+                                </connections>
+                            </searchBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSU-lb-ew3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="zhD-rP-29e" kind="embed" id="2bR-Nz-Rg8"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xpU-Hf-ONW" firstAttribute="top" secondItem="w1E-on-WuP" secondAttribute="bottom" id="QwB-m0-pqu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TSU-lb-ew3" secondAttribute="trailing" constant="-16" id="VOm-cF-WRS"/>
+                            <constraint firstItem="uTo-Ep-aYt" firstAttribute="top" secondItem="TSU-lb-ew3" secondAttribute="bottom" id="a7b-G1-3up"/>
+                            <constraint firstItem="xpU-Hf-ONW" firstAttribute="leading" secondItem="ZVs-zN-W8K" secondAttribute="leadingMargin" constant="-16" id="aSV-Jw-Iv1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xpU-Hf-ONW" secondAttribute="trailing" constant="-16" id="pSh-SJ-d44"/>
+                            <constraint firstItem="TSU-lb-ew3" firstAttribute="leading" secondItem="ZVs-zN-W8K" secondAttribute="leadingMargin" constant="-16" id="rif-ig-A1K"/>
+                            <constraint firstItem="TSU-lb-ew3" firstAttribute="top" secondItem="xpU-Hf-ONW" secondAttribute="bottom" id="z8b-4O-M5E"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="view" destination="ZVs-zN-W8K" id="tbh-z9-Jt6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="93.599999999999994" y="37.331334332833585"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="XJs-SG-sbk">
+            <objects>
+                <viewController id="zhD-rP-29e" customClass="MapViewController" customModule="MapBoxTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IOm-Ct-wjy"/>
+                        <viewControllerLayoutGuide type="bottom" id="VEU-Us-SvT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x45-ea-2tQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14e-lx-0lz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1235" y="46"/>
         </scene>
     </scenes>
 </document>
